@@ -1,0 +1,203 @@
+@import "fonts/orelo-sw-r";
+
+@font-face {
+  font-family: "proxima-nova";
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  src: local("proxima nova regular"), local("proxima-nova-regular"),
+    url("../fonts/proxima-nova-regular.woff2") format("woff2"),
+    url("../fonts/proxima-nova-regular.woff") format("woff");
+}
+
+@mixin breakpoint($point) {
+  @if $point == large {
+    @media (min-width: 1220px) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (max-width: 1221px) {
+      @content;
+    }
+  } @else if $point == small {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+}
+
+html {
+  body {
+    font-family: proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0 auto;
+  }
+}
+
+.standardized-wrapper {
+  margin: 0 auto;
+  max-width: 940px;
+  width: 940px;
+
+  @include breakpoint(small) {
+    width: 100%;
+  }
+}
+
+.hero {
+  background-color: #102312;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 756px;
+
+  @include breakpoint(small) {
+    padding: 0 20px;
+  }
+
+  h1 {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 70px 0 50px;
+  }
+
+  h2 {
+    color: #fff2df;
+    font-family: Orelo-sw-r;
+    font-weight: normal;
+    font-size: 80px;
+    margin: 0 0 80px;
+
+    @include breakpoint(small) {
+      font-size: 40px;
+    }
+  }
+
+  hr {
+    background: white;
+    border: none;
+    height: 1px;
+    margin: 0 0 20px;
+    width: 100%;
+  }
+
+  .personal-info {
+    align-items: flex-start;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 18px;
+    justify-content: space-between;
+  }
+
+  .personal-info__wrapper {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.44;
+    margin-bottom: 20px;
+
+    @include breakpoint(small) {
+      &:nth-child(even) {
+        text-align: right;
+      }
+    }
+  }
+
+  .personal-info__title {
+    font-family: Orelo-sw-r;
+  }
+
+  .personal-info__content {
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ebffce;
+    }
+  }
+}
+
+.work {
+  background-color: #fef5e9;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 150px;
+
+  @include breakpoint(small) {
+    padding: 0 20px 50px;
+  }
+
+  .project__title {
+    font-family: Orelo-sw-r;
+    font-size: 60px;
+    font-weight: normal;
+    margin: 0 0 30px;
+    padding-top: 80px;
+  }
+
+  .carousel {
+    background-color: #000;
+
+    @include breakpoint(small) {
+      width: 100% !important;
+    }
+
+    &.carousel_horizontal_large {
+      height: 536px;
+      width: 860px;
+    }
+
+    &.carousel_horizontal_small {
+      height: 507px;
+      width: 780px;
+    }
+
+    &.carousel_vertical {
+      height: 783px;
+      width: 700px;
+    }
+
+    &.carousel_vertical_small {
+      height: 711px;
+      width: 620px;
+    }
+  }
+
+  .project__description {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .project_full_right {
+    margin-left: auto;
+    max-width: 700px;
+  }
+
+  .project_indent {
+    margin-left: 80px;
+    max-width: 780px;
+  }
+
+  .project_center {
+    margin-left: 160px;
+    max-width: 620px;
+  }
+
+  .project {
+    @include breakpoint(small) {
+      margin: 0;
+    }
+  }
+}
+
+footer {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+  height: 90px;
+}
