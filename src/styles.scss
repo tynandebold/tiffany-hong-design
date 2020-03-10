@@ -112,6 +112,7 @@ html {
     a {
       color: #fff;
       text-decoration: none;
+      transition: color 0.2s;
     }
 
     a:hover {
@@ -138,8 +139,9 @@ html {
     padding-top: 80px;
   }
 
-  .carousel {
-    background-color: #000;
+  .carousel-wrapper {
+    // background-color: #000;
+    margin-bottom: 58px;
 
     @include breakpoint(small) {
       width: 100% !important;
@@ -163,6 +165,18 @@ html {
     &.carousel_vertical_small {
       height: 711px;
       width: 620px;
+    }
+  }
+
+  .carousel {
+    transition: opacity 0.25s;
+
+    &.is-hidden {
+      opacity: 0;
+    }
+
+    &.flickity-enabled {
+      opacity: 1;
     }
   }
 
@@ -191,6 +205,18 @@ html {
       margin: 0;
     }
   }
+
+  .carousel-wrapper,
+  .carousel,
+  .carousel-cell {
+    height: 100%;
+    width: 100%;
+  }
+
+  .carousel-info {
+    font-size: 18px;
+    text-align: center;
+  }
 }
 
 footer {
@@ -198,6 +224,6 @@ footer {
   cursor: pointer;
   display: flex;
   font-size: 24px;
-  justify-content: center;
   height: 90px;
+  justify-content: center;
 }
