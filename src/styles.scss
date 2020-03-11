@@ -32,6 +32,9 @@ html {
     font-style: normal;
     font-weight: 400;
     margin: 0 auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -57,9 +60,22 @@ html {
   }
 
   h1 {
+    animation: 0.5s ease-in-out forwards slide-down;
     color: #ffffff;
     font-size: 18px;
     margin: 70px 0 50px;
+  }
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translate(0, -100%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(0);
+    }
   }
 
   h2 {
@@ -72,6 +88,36 @@ html {
     @include breakpoint(small) {
       font-size: 40px;
     }
+
+    p {
+      animation: 0.5s ease-in-out forwards slide-up;
+      margin: 0;
+      opacity: 0;
+
+      &:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+    }
+
+    @keyframes slide-up {
+      from {
+        opacity: 0;
+        transform: translate(0, 20%);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(0);
+      }
+    }
   }
 
   hr {
@@ -83,12 +129,24 @@ html {
   }
 
   .personal-info {
+    animation: 0.5s ease-in-out 0.7s forwards fade-in;
     align-items: flex-start;
     color: #fff;
     display: flex;
     flex-wrap: wrap;
     font-size: 18px;
     justify-content: space-between;
+    opacity: 0;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   .personal-info__wrapper {
@@ -216,6 +274,27 @@ html {
   .carousel-info {
     font-size: 18px;
     text-align: center;
+  }
+
+  button.flickity-button.flickity-prev-next-button {
+    -webkit-transform: none;
+    background-color: transparent;
+    border-radius: 0;
+    height: 100%;
+    opacity: 0;
+    top: 0;
+    transform: none;
+    width: 50%;
+  }
+
+  button.flickity-button.flickity-prev-next-button.previous {
+    cursor: url("../images/prev.png") 16 16, w-resize;
+    left: 0;
+  }
+
+  button.flickity-button.flickity-prev-next-button.next {
+    cursor: url("../images/next.png") 16 16, e-resize;
+    right: 0;
   }
 }
 

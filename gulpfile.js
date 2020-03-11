@@ -28,9 +28,12 @@ function css() {
 }
 
 function copyFiles() {
-  return src(["src/index.html", "src/index.js", "src/fonts/*"], {
-    base: "src/"
-  }).pipe(dest("public/"));
+  return src(
+    ["src/index.html", "src/index.js", "src/fonts/*", "src/images/*"],
+    {
+      base: "src/"
+    }
+  ).pipe(dest("public/"));
 }
 
 function watchSrc(cb) {

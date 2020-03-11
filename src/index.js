@@ -31,7 +31,7 @@
     var $carousel = wrapper.querySelector(".carousel");
     $carousel.classList.remove("is-hidden");
     $carousel.offsetHeight;
-    var flkty = new Flickity($carousel, { pageDots: false });
+    var flkty = new Flickity($carousel, { pageDots: false, wrapAround: true });
     var carouselStatus = wrapper.querySelector(".carousel-info");
 
     function updateStatus() {
