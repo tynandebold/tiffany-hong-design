@@ -53,7 +53,8 @@ html {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  max-height: 756px;
+  justify-content: center;
+  max-height: 870px;
 
   @include breakpoint(small) {
     padding: 0 20px;
@@ -63,19 +64,7 @@ html {
     animation: 0.5s ease-in-out forwards slide-down;
     color: #ffffff;
     font-size: 18px;
-    margin: 70px 0 50px;
-  }
-
-  @keyframes slide-down {
-    from {
-      opacity: 0;
-      transform: translate(0, -100%);
-    }
-
-    to {
-      opacity: 1;
-      transform: translate(0);
-    }
+    margin: 0 0 50px;
   }
 
   h2 {
@@ -106,18 +95,6 @@ html {
         animation-delay: 0.6s;
       }
     }
-
-    @keyframes slide-up {
-      from {
-        opacity: 0;
-        transform: translate(0, 20%);
-      }
-
-      to {
-        opacity: 1;
-        transform: translate(0);
-      }
-    }
   }
 
   hr {
@@ -137,16 +114,6 @@ html {
     font-size: 18px;
     justify-content: space-between;
     opacity: 0;
-  }
-
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
   }
 
   .personal-info__wrapper {
@@ -194,7 +161,12 @@ html {
     font-size: 60px;
     font-weight: normal;
     margin: 0 0 30px;
+    opacity: 0;
     padding-top: 80px;
+
+    &.visible {
+      animation: 0.5s ease-in-out forwards slide-up;
+    }
   }
 
   .carousel-wrapper {
@@ -206,8 +178,18 @@ html {
     }
 
     &.carousel_horizontal_large {
-      height: 536px;
-      width: 860px;
+      max-height: 536px;
+      max-width: 860px;
+
+      img,
+      video {
+        display: block;
+        height: 536px;
+
+        @include breakpoint(small) {
+          height: 300px;
+        }
+      }
     }
 
     &.carousel_horizontal_small {
@@ -264,13 +246,6 @@ html {
     }
   }
 
-  .carousel-wrapper,
-  .carousel,
-  .carousel-cell {
-    height: 100%;
-    width: 100%;
-  }
-
   .carousel-info {
     font-size: 18px;
     text-align: center;
@@ -285,15 +260,19 @@ html {
     top: 0;
     transform: none;
     width: 50%;
+
+    @include breakpoint(small) {
+      pointer-events: none;
+    }
   }
 
   button.flickity-button.flickity-prev-next-button.previous {
-    cursor: url("../images/prev.png") 16 16, w-resize;
+    cursor: url("../assets/prev.png") 16 16, w-resize;
     left: 0;
   }
 
   button.flickity-button.flickity-prev-next-button.next {
-    cursor: url("../images/next.png") 16 16, e-resize;
+    cursor: url("../assets/next.png") 16 16, e-resize;
     right: 0;
   }
 }
@@ -305,4 +284,38 @@ footer {
   font-size: 24px;
   height: 90px;
   justify-content: center;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translate(0, -100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translate(0, 20%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

@@ -29,7 +29,7 @@ function css() {
 
 function copyFiles() {
   return src(
-    ["src/index.html", "src/index.js", "src/fonts/*", "src/images/*"],
+    ["src/index.html", "src/index.js", "src/fonts/*", "src/assets/*"],
     {
       base: "src/"
     }
