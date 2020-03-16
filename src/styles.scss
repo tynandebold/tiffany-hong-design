@@ -76,7 +76,8 @@ html {
     margin: 0 0 80px;
 
     @include breakpoint(small) {
-      font-size: 40px;
+      font-size: 48px;
+      margin: 0 30px 50px 0;
     }
 
     p {
@@ -121,7 +122,7 @@ html {
     display: flex;
     flex-direction: column;
     line-height: 1.44;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
     @include breakpoint(small) {
       &:nth-child(even) {
@@ -165,6 +166,10 @@ html {
     opacity: 0;
     padding-top: 80px;
 
+    @include breakpoint(small) {
+      font-size: 40px;
+    }
+
     &.visible {
       animation: 0.5s ease-in-out forwards slide-up;
     }
@@ -174,6 +179,7 @@ html {
     margin-bottom: 58px;
 
     @include breakpoint(small) {
+      margin-bottom: 30px;
       width: 100% !important;
     }
 
@@ -187,21 +193,21 @@ html {
         height: 536px;
 
         @include breakpoint(small) {
-          height: 300px;
+          height: 230px;
         }
       }
     }
 
     &.carousel-wrapper_horizontal_small {
-      height: 507px;
-      width: 780px;
+      max-height: 507px;
+      max-width: 780px;
 
       img {
         display: block;
         height: 507px;
 
         @include breakpoint(small) {
-          height: 300px;
+          height: 230px;
         }
       }
     }
@@ -221,8 +227,8 @@ html {
     }
 
     &.carousel-wrapper_vertical_small {
-      height: 711px;
-      width: 620px;
+      max-height: 711px;
+      max-width: 620px;
 
       img,
       video {
@@ -251,6 +257,10 @@ html {
   .project__description {
     font-size: 32px;
     line-height: 1.25;
+
+    @include breakpoint(small) {
+      font-size: 26px;
+    }
   }
 
   .project_full_right {
@@ -307,11 +317,51 @@ html {
 
 footer {
   align-items: center;
-  cursor: pointer;
   display: flex;
   font-size: 24px;
   height: 90px;
   justify-content: center;
+
+  a {
+    cursor: pointer;
+    display: flex;
+  }
+}
+
+.up-arrow {
+  height: 40px;
+  margin: -4px 0 0 10px;
+  position: relative;
+  width: 26px;
+}
+
+.line {
+  background-color: #000;
+  height: 1px;
+  position: absolute;
+}
+
+.line_horizontal {
+  top: 20px;
+  width: 25px;
+}
+
+.line_vertical {
+  right: -10px;
+  top: 10px;
+  transform: rotate(90deg);
+  width: 21px;
+}
+
+.arrow-end {
+  border: solid black;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-135deg);
+  right: -5px;
+  position: absolute;
+  top: 1px;
 }
 
 @keyframes slide-down {
