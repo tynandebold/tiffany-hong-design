@@ -52,25 +52,37 @@
   }
 
   function initCarouselWrapper(wrapper) {
+    var $slideNums = wrapper.querySelector(".carousel-info");
     var $carousel = wrapper.querySelector(".carousel");
-    $carousel.classList.remove("is-hidden");
-    $carousel.offsetHeight;
+    var videos = wrapper.querySelectorAll("video");
 
-    var flkty = new Flickity($carousel, {
+    var flktyCarousel = new Flickity($carousel, {
       imagesLoaded: true,
       lazyLoad: true,
       pageDots: false,
       wrapAround: true
     });
-    var carouselStatus = wrapper.querySelector(".carousel-info");
 
-    function updateStatus() {
-      var slideNumber = flkty.selectedIndex + 1;
-      carouselStatus.textContent = slideNumber + " of " + flkty.slides.length;
+    function updateCarouselSlideNumber() {
+      var slideNum = flktyCarousel.selectedIndex + 1;
+      $slideNums.textContent = slideNum + " of " + flktyCarousel.slides.length;
     }
 
-    updateStatus();
+    if (!!videos.length) {
+      videos.forEach(function(video) {
+        video.play();
+        video.addEventListener("loadeddata", onLoadedVideoData);
+      });
+    }
 
-    flkty.on("select", updateStatus);
+    function onLoadedVideoData(event) {
+      var cell = flktyCarousel.getParentCell(event.target);
+      flktyCarousel.cellSizeChange(cell && cell.element);
+    }
+
+    $carousel.classList.remove("is-hidden");
+    $carousel.offsetHeight;
+
+    flktyCarousel.on("select", updateCarouselSlideNumber);
   }
 })();
