@@ -54,7 +54,7 @@ html {
   flex-direction: column;
   height: 100vh;
   justify-content: center;
-  max-height: 870px;
+  max-height: 880px;
 
   @include breakpoint(small) {
     padding: 0 20px;
@@ -170,14 +170,13 @@ html {
   }
 
   .carousel-wrapper {
-    // background-color: #000;
     margin-bottom: 58px;
 
     @include breakpoint(small) {
       width: 100% !important;
     }
 
-    &.carousel_horizontal_large {
+    &.carousel-wrapper_horizontal_large {
       max-height: 536px;
       max-width: 860px;
 
@@ -192,19 +191,47 @@ html {
       }
     }
 
-    &.carousel_horizontal_small {
+    &.carousel-wrapper_horizontal_small {
       height: 507px;
       width: 780px;
+
+      img {
+        display: block;
+        height: 507px;
+
+        @include breakpoint(small) {
+          height: 300px;
+        }
+      }
     }
 
-    &.carousel_vertical {
-      height: 783px;
-      width: 700px;
+    &.carousel-wrapper_vertical {
+      max-height: 783px;
+      max-width: 700px;
+
+      img {
+        display: block;
+        height: 783px;
+
+        @include breakpoint(small) {
+          height: 400px;
+        }
+      }
     }
 
-    &.carousel_vertical_small {
+    &.carousel-wrapper_vertical_small {
       height: 711px;
       width: 620px;
+
+      img,
+      video {
+        display: block;
+        height: 711px;
+
+        @include breakpoint(small) {
+          height: 400px;
+        }
+      }
     }
   }
 
