@@ -57,6 +57,7 @@ html {
   max-height: 880px;
 
   @include breakpoint(small) {
+    height: auto;
     padding: 0 20px;
   }
 
@@ -66,6 +67,10 @@ html {
     font-size: 18px;
     font-weight: normal;
     margin: 0 0 50px;
+
+    @include breakpoint(small) {
+      margin: 50px 0 50px;
+    }
   }
 
   h2 {
@@ -116,6 +121,10 @@ html {
     font-size: 18px;
     justify-content: space-between;
     opacity: 0;
+
+    @include breakpoint(small) {
+      margin-bottom: 20px;
+    }
   }
 
   .personal-info__wrapper {
@@ -125,9 +134,7 @@ html {
     margin-bottom: 15px;
 
     @include breakpoint(small) {
-      &:nth-child(even) {
-        text-align: right;
-      }
+      width: 100%;
     }
   }
 
@@ -187,9 +194,7 @@ html {
       max-height: 536px;
       max-width: 860px;
 
-      img,
-      video {
-        display: block;
+      .carousel {
         height: 536px;
 
         @include breakpoint(small) {
@@ -202,8 +207,7 @@ html {
       max-height: 507px;
       max-width: 780px;
 
-      img {
-        display: block;
+      .carousel {
         height: 507px;
 
         @include breakpoint(small) {
@@ -216,8 +220,7 @@ html {
       max-height: 783px;
       max-width: 700px;
 
-      img {
-        display: block;
+      .carousel {
         height: 783px;
 
         @include breakpoint(small) {
@@ -230,9 +233,7 @@ html {
       max-height: 711px;
       max-width: 620px;
 
-      img,
-      video {
-        display: block;
+      .carousel {
         height: 711px;
 
         @include breakpoint(small) {
@@ -251,6 +252,16 @@ html {
 
     &.flickity-enabled {
       opacity: 1;
+    }
+  }
+
+  .carousel-cell {
+    height: 100%;
+
+    img,
+    video {
+      display: block;
+      height: 100%;
     }
   }
 
