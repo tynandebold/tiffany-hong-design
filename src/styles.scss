@@ -6,8 +6,7 @@
   font-style: normal;
   font-weight: 400;
   src: local("proxima nova regular"), local("proxima-nova-regular"),
-    url("../fonts/proxima-nova-regular.woff2") format("woff2"),
-    url("../fonts/proxima-nova-regular.woff") format("woff");
+    url("../fonts/proxima-nova-regular.woff2") format("woff2");
 }
 
 @mixin breakpoint($point) {

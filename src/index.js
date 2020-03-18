@@ -58,7 +58,7 @@
 
     var flktyCarousel = new Flickity($carousel, {
       imagesLoaded: true,
-      lazyLoad: 2,
+      lazyLoad: 1,
       pageDots: false,
       setGallerySize: false,
       wrapAround: true
