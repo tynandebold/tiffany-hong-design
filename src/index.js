@@ -1,4 +1,4 @@
-(function() {
+(function () {
   init();
 
   function init() {
@@ -7,21 +7,12 @@
   }
 
   function handleEvents() {
-    scrollToTop();
     initObserver();
-  }
-
-  function scrollToTop() {
-    document
-      .querySelector(".back-to-top")
-      .addEventListener("click", function() {
-        document.documentElement.scrollTop = 0;
-      });
   }
 
   var $projectTitles;
   function initObserver() {
-    window.addEventListener("load", function() {
+    window.addEventListener("load", function () {
       $projectTitles = document.querySelectorAll(".project__title");
       createObserver();
     });
@@ -31,13 +22,13 @@
   function createObserver() {
     observer = new IntersectionObserver(handleIntersect, { threshold: 0.75 });
 
-    $projectTitles.forEach(function(target) {
+    $projectTitles.forEach(function (target) {
       observer.observe(target);
     });
   }
 
-  var handleIntersect = function(entries) {
-    entries.forEach(function(entry) {
+  var handleIntersect = function (entries) {
+    entries.forEach(function (entry) {
       if (entry.isIntersecting) entry.target.classList.add("visible");
     });
   };
@@ -61,7 +52,7 @@
       lazyLoad: 1,
       pageDots: false,
       setGallerySize: false,
-      wrapAround: true
+      wrapAround: true,
     });
 
     function updateCarouselSlideNumber() {
@@ -70,7 +61,7 @@
     }
 
     if (!!videos.length) {
-      videos.forEach(function(video) {
+      videos.forEach(function (video) {
         video.play();
         video.addEventListener("loadeddata", onLoadedVideoData);
       });

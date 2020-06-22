@@ -325,55 +325,6 @@ html {
   }
 }
 
-footer {
-  align-items: center;
-  display: flex;
-  font-size: 24px;
-  height: 90px;
-  justify-content: center;
-
-  a {
-    cursor: pointer;
-    display: flex;
-  }
-}
-
-.up-arrow {
-  height: 40px;
-  margin: -4px 0 0 10px;
-  position: relative;
-  width: 26px;
-}
-
-.line {
-  background-color: #000;
-  height: 1px;
-  position: absolute;
-}
-
-.line_horizontal {
-  top: 20px;
-  width: 25px;
-}
-
-.line_vertical {
-  right: -10px;
-  top: 10px;
-  transform: rotate(90deg);
-  width: 21px;
-}
-
-.arrow-end {
-  border: solid black;
-  border-width: 0 1px 1px 0;
-  display: inline-block;
-  padding: 5px;
-  transform: rotate(-135deg);
-  right: -5px;
-  position: absolute;
-  top: 1px;
-}
-
 @keyframes slide-down {
   from {
     opacity: 0;
