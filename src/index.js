@@ -12,8 +12,8 @@
 
   var $projectTitles;
   function initObserver() {
-    window.addEventListener("load", function () {
-      $projectTitles = document.querySelectorAll(".project__title");
+    window.addEventListener('load', function () {
+      $projectTitles = document.querySelectorAll('.project__title');
       createObserver();
     });
   }
@@ -29,12 +29,12 @@
 
   var handleIntersect = function (entries) {
     entries.forEach(function (entry) {
-      if (entry.isIntersecting) entry.target.classList.add("visible");
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   };
 
   function initCarousels() {
-    var $carouselWrappers = document.querySelectorAll(".carousel-wrapper");
+    var $carouselWrappers = document.querySelectorAll('.carousel-wrapper');
 
     for (var i = 0; i < $carouselWrappers.length; i++) {
       var $wrapper = $carouselWrappers[i];
@@ -43,9 +43,9 @@
   }
 
   function initCarouselWrapper(wrapper) {
-    var $slideNums = wrapper.querySelector(".carousel-info");
-    var $carousel = wrapper.querySelector(".carousel");
-    var videos = wrapper.querySelectorAll("video");
+    var $slideNums = wrapper.querySelector('.carousel-info');
+    var $carousel = wrapper.querySelector('.carousel');
+    var videos = wrapper.querySelectorAll('video');
 
     var flktyCarousel = new Flickity($carousel, {
       imagesLoaded: true,
@@ -57,13 +57,13 @@
 
     function updateCarouselSlideNumber() {
       var slideNum = flktyCarousel.selectedIndex + 1;
-      $slideNums.textContent = slideNum + " of " + flktyCarousel.slides.length;
+      $slideNums.textContent = slideNum + ' of ' + flktyCarousel.slides.length;
     }
 
     if (!!videos.length) {
       videos.forEach(function (video) {
         video.play();
-        video.addEventListener("loadeddata", onLoadedVideoData);
+        video.addEventListener('loadeddata', onLoadedVideoData);
       });
     }
 
@@ -72,9 +72,9 @@
       flktyCarousel.cellSizeChange(cell && cell.element);
     }
 
-    $carousel.classList.remove("is-hidden");
+    $carousel.classList.remove('is-hidden');
     $carousel.offsetHeight;
 
-    flktyCarousel.on("select", updateCarouselSlideNumber);
+    flktyCarousel.on('select', updateCarouselSlideNumber);
   }
 })();
