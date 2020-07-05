@@ -48,10 +48,9 @@ html {
 }
 
 .hero {
-  /* Fallback if browser doesn't support gradients */
-  background: #e5b4ff;
-  /* Gradient */
-  background: radial-gradient(at center, #e5b4ff, #ff9a9a, #ffb89a, #c4e3ff);
+  background-image: url("./assets/hero.jpg");
+  background-position: center center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   height: 100vh;

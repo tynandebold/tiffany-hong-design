@@ -8,9 +8,6 @@
 
   function handleEvents() {
     initObserver();
-    document
-      .querySelector('.hero')
-      .addEventListener('mousemove', animateHeroBg);
   }
 
   var $projectTitles;
@@ -79,20 +76,5 @@
     $carousel.offsetHeight;
 
     flktyCarousel.on('select', updateCarouselSlideNumber);
-  }
-
-  function animateHeroBg(e) {
-    var windowWidth = window.innerWidth;
-    var windowHeight = window.innerHeight;
-    var mouseXPercentage = Math.round((e.pageX / windowWidth) * 100);
-    var mouseYPercentage = Math.round((e.pageY / windowHeight) * 100);
-
-    document.querySelector('.hero').style.cssText =
-      'background: ' +
-      'radial-gradient(at ' +
-      mouseXPercentage +
-      '% ' +
-      mouseYPercentage +
-      '%, #e5b4ff, #ff9a9a, #ffb89a, #c4e3ff)';
   }
 })();
