@@ -55,7 +55,6 @@ html {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  justify-content: center;
   max-height: 880px;
 
   @include breakpoint(small) {
@@ -63,29 +62,55 @@ html {
     padding: 0 20px;
   }
 
-  &__top-level {
-    align-items: baseline;
+  &__top-row {
+    align-items: center;
     display: flex;
-    margin: 0 0 75px;
+    margin: 65px 0 75px;
 
     @include breakpoint(small) {
+      flex-direction: row-reverse;
       margin: 50px 0 50px;
     }
   }
 
-  &__status {
-    animation: 0.5s ease-in-out forwards slide-down;
-    color: #000;
+  &__work-status-wrapper {
     flex: 1;
-    font-size: 14px;
-    font-weight: 600;
 
-    &-color {
-      color: #002eff;
+    @include breakpoint(small) {
+      &:last-of-type {
+        display: none;
+      }
     }
   }
 
-  &__seal {
+  .animation-container {
+    height: 40px;
+    max-width: 200px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__work-status-wrapper-text {
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-name: slide-text;
+    animation-timing-function: linear;
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &_color {
+      color: #002eff;
+      text-decoration: none;
+    }
+  }
+
+  &__emblem {
+    animation: 0.5s ease-in-out forwards slide-down;
     background-color: #000;
     border-radius: 50%;
     color: #fff;
@@ -103,15 +128,16 @@ html {
   }
 
   &__greeting {
-    color: #fff2df;
+    color: #fff;
     font-family: Orelo-sw-r;
     font-weight: normal;
-    font-size: 82px;
-    line-height: 72px;
-    margin: 0 0 45px;
+    font-size: 86px;
+    line-height: 76px;
+    margin: 0 0 55px;
 
     @include breakpoint(small) {
       font-size: 48px;
+      line-height: 50px;
       margin: 0 30px 50px 0;
     }
 
@@ -121,25 +147,24 @@ html {
       opacity: 0;
 
       &:nth-child(1) {
-        animation-delay: 0.2s;
+        animation-delay: 0.3s;
       }
 
       &:nth-child(2) {
-        animation-delay: 0.4s;
-      }
-
-      &:nth-child(3) {
         animation-delay: 0.6s;
       }
     }
   }
 
   &__intro {
+    animation: 0.5s ease-in-out 0.8s forwards slide-up;
     color: #fff;
     font-weight: normal;
-    font-size: 26px;
-    line-height: 32px;
+    font-size: 22px;
+    line-height: 28px;
     margin-bottom: 45px;
+    max-width: 850px;
+    opacity: 0;
   }
 
   strong {
@@ -147,7 +172,7 @@ html {
   }
 
   .personal-info {
-    animation: 0.5s ease-in-out 0.7s forwards fade-in;
+    animation: 0.5s ease-in-out 1s forwards fade-in;
     align-items: flex-start;
     color: #fff;
     display: flex;
@@ -157,7 +182,7 @@ html {
     opacity: 0;
 
     @include breakpoint(small) {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
   }
 
@@ -233,7 +258,7 @@ html {
       width: 100% !important;
     }
 
-    &.carousel-wrapper_horizontal_large {
+    &_horizontal_large {
       max-height: 536px;
       max-width: 860px;
 
@@ -246,7 +271,7 @@ html {
       }
     }
 
-    &.carousel-wrapper_horizontal_small {
+    &_horizontal_small {
       max-height: 507px;
       max-width: 780px;
 
@@ -259,7 +284,7 @@ html {
       }
     }
 
-    &.carousel-wrapper_vertical {
+    &_vertical {
       max-height: 783px;
       max-width: 700px;
 
@@ -272,7 +297,7 @@ html {
       }
     }
 
-    &.carousel-wrapper_vertical_small {
+    &_vertical_small {
       max-height: 711px;
       max-width: 620px;
 
