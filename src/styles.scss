@@ -87,6 +87,10 @@ html {
     max-width: 200px;
     overflow: hidden;
     position: relative;
+
+    @include breakpoint(small) {
+      max-width: 220px;
+    }
   }
 
   &__work-status-wrapper-text {
@@ -97,10 +101,14 @@ html {
     color: #000;
     font-size: 14px;
     font-weight: 600;
-    left: 0;
+    left: 100%;
     position: absolute;
     top: 0;
     width: 100%;
+
+    @include breakpoint(small) {
+      animation-delay: 1.5s;
+    }
 
     &_color {
       color: #002eff;
@@ -118,6 +126,10 @@ html {
     height: 60px;
     text-align: center;
     width: 60px;
+
+    @include breakpoint(small) {
+      margin-right: 12px;
+    }
 
     &__text {
       display: block;
