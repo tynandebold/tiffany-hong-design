@@ -9,6 +9,24 @@
     url("../fonts/proxima-nova-regular.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "proxima-nova";
+  src: url("../fonts/ProximaNova-Light.woff2") format("woff2"),
+    url("../fonts/ProximaNova-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "proxima-nova";
+  src: url("../fonts/ProximaNova-Semibold.woff2") format("woff2"),
+    url("../fonts/ProximaNova-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 @mixin breakpoint($point) {
   @if $point == large {
     @media (min-width: 1220px) {
@@ -147,8 +165,8 @@ html {
     margin: 0 0 55px;
 
     @include breakpoint(small) {
-      font-size: 48px;
-      line-height: 50px;
+      font-size: 50px;
+      line-height: 52px;
       margin: 0 30px 50px 0;
     }
 
@@ -170,7 +188,7 @@ html {
   &__intro {
     animation: 0.5s ease-in-out 0.8s forwards slide-up;
     color: #fff;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 22px;
     line-height: 28px;
     margin-bottom: 45px;
