@@ -71,17 +71,24 @@ html {
 }
 
 .hero {
-  background-image: url("./assets/hero.jpg");
+  background-image: url("./assets/otis-redding.png");
   background-position: center center;
   background-size: cover;
   display: flex;
   flex-direction: column;
   height: 100vh;
   max-height: 880px;
+  position: relative;
 
   @include breakpoint(small) {
     height: auto;
     padding: 0 20px;
+  }
+
+  .canvas {
+    height: 100%;
+    position: absolute;
+    width: 100%;
   }
 
   &__top-row {
