@@ -3,11 +3,12 @@
   src: url("../fonts/Orelo-SemiWide.woff2") format("woff2"), url("../fonts/Orelo-SemiWide.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "proxima-nova";
-  font-display: auto;
+  font-display: swap;
   font-style: normal;
   font-weight: 400;
   src: local("proxima nova regular"), local("proxima-nova-regular"),

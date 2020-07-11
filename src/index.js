@@ -3,9 +3,14 @@
 
   function init() {
     handleEvents();
-    setTimeout(function () {
-      initCarousels();
-    }, 1200);
+
+    var isHeroInView = isElemInViewport(document.querySelector('.hero'));
+    setTimeout(
+      function () {
+        initCarousels();
+      },
+      isHeroInView ? 1750 : 1000
+    );
   }
 
   function handleEvents() {
@@ -78,5 +83,18 @@
     $carousel.offsetHeight;
 
     flktyCarousel.on('select', updateCarouselSlideNumber);
+  }
+
+  function isElemInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    var windowHeight =
+      window.innerHeight || document.documentElement.clientHeight;
+
+    return !(
+      Math.floor(
+        100 - ((rect.top >= 0 ? 0 : rect.top) / +-(rect.height / 1)) * 100
+      ) < 1 ||
+      Math.floor(100 - ((rect.bottom - windowHeight) / rect.height) * 100) < 1
+    );
   }
 })();
