@@ -3,7 +3,9 @@
 
   function init() {
     handleEvents();
-    initCarousels();
+    setTimeout(function () {
+      initCarousels();
+    }, 1200);
   }
 
   function handleEvents() {

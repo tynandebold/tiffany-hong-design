@@ -33,12 +33,13 @@
     />
     <meta name="robots" content="index,follow" />
     <meta name="googlebot" content="index,follow" />
-    <!-- <link rel="stylesheet" href="//use.typekit.net/vem3hnf.css" /> -->
-    <link
-      rel="stylesheet"
-      href="//unpkg.com/flickity@2/dist/flickity.min.css"
-    />
     <link rel="stylesheet" href="./styles.min.css" />
+    <link
+      as="style"
+      href="//unpkg.com/flickity@2.2.1/dist/flickity.min.css"
+      onload="this.onload=null;this.rel='stylesheet'"
+      rel="preload"
+    />
   </head>
   <body>
     <main>
@@ -296,7 +297,10 @@
         </div>
       </section>
     </main>
-    <script src="//unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    <script src="./index.min.js"></script>
+    <script
+      async
+      src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"
+    ></script>
+    <script async src="./index.min.js"></script>
   </body>
 </html>

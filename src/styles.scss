@@ -1,4 +1,9 @@
-@import "fonts/orelo-sw-r";
+@font-face {
+  font-family: "Orelo-SemiWide";
+  src: url("../fonts/Orelo-SemiWide.woff2") format("woff2"), url("../fonts/Orelo-SemiWide.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
   font-family: "proxima-nova";
@@ -11,8 +16,7 @@
 
 @font-face {
   font-family: "proxima-nova";
-  src: url("../fonts/ProximaNova-Light.woff2") format("woff2"),
-    url("../fonts/ProximaNova-Light.woff") format("woff");
+  src: url("../fonts/ProximaNova-Light.woff2") format("woff2"), url("../fonts/ProximaNova-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -119,9 +123,9 @@ html {
     color: #000;
     font-size: 14px;
     font-weight: 600;
-    left: 100%;
     position: absolute;
     top: 0;
+    transform: translate(100%, 0);
     width: 100%;
 
     @include breakpoint(small) {
@@ -139,7 +143,7 @@ html {
     background-color: #000;
     border-radius: 50%;
     color: #fff;
-    font-family: Orelo-sw-r;
+    font-family: Orelo-SemiWide;
     font-size: 24px;
     height: 60px;
     text-align: center;
@@ -158,7 +162,7 @@ html {
 
   &__greeting {
     color: #fff;
-    font-family: Orelo-sw-r;
+    font-family: Orelo-SemiWide;
     font-weight: normal;
     font-size: 86px;
     line-height: 76px;
@@ -167,13 +171,15 @@ html {
     @include breakpoint(small) {
       font-size: 50px;
       line-height: 52px;
-      margin: 0 30px 50px 0;
+      margin: 0 30px 40px 0;
+      max-width: 260px;
     }
 
     p {
       animation: 0.5s ease-in-out forwards slide-up;
       margin: 0;
       opacity: 0;
+      will-change: transform;
 
       &:nth-child(1) {
         animation-delay: 0.3s;
@@ -207,7 +213,7 @@ html {
   }
 
   .personal-info {
-    animation: 0.5s ease-in-out 1s forwards fade-in;
+    animation: 0.5s ease-in-out 1.2s forwards fade-in;
     align-items: flex-start;
     color: #fff;
     display: flex;
@@ -269,7 +275,7 @@ html {
   }
 
   .project__title {
-    font-family: Orelo-sw-r;
+    font-family: Orelo-SemiWide;
     font-size: 60px;
     font-weight: normal;
     margin: 0 0 30px;
@@ -465,9 +471,9 @@ html {
 
 @keyframes slide-text {
   from {
-    left: 100%;
+    transform: translate(100%, 0);
   }
   to {
-    left: -100%;
+    transform: translate(-100%, 0);
   }
 }
