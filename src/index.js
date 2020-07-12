@@ -2,16 +2,8 @@
   init();
 
   function init() {
-    var isHeroInView = isElemInViewport(document.querySelector('.hero'));
-
+    initCarousels();
     handleEvents();
-
-    setTimeout(
-      function () {
-        initCarousels();
-      },
-      isHeroInView ? 2250 : 1000
-    );
   }
 
   function handleEvents() {
@@ -57,7 +49,7 @@
 
     var flktyCarousel = new Flickity($carousel, {
       imagesLoaded: true,
-      lazyLoad: 1,
+      lazyLoad: true,
       pageDots: false,
       setGallerySize: false,
       wrapAround: true,
@@ -84,18 +76,5 @@
     $carousel.offsetHeight;
 
     flktyCarousel.on('select', updateCarouselSlideNumber);
-  }
-
-  function isElemInViewport(el) {
-    var rect = el.getBoundingClientRect();
-    var windowHeight =
-      window.innerHeight || document.documentElement.clientHeight;
-
-    return !(
-      Math.floor(
-        100 - ((rect.top >= 0 ? 0 : rect.top) / +-(rect.height / 1)) * 100
-      ) < 1 ||
-      Math.floor(100 - ((rect.bottom - windowHeight) / rect.height) * 100) < 1
-    );
   }
 })();
