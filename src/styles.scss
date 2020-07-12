@@ -137,7 +137,7 @@ html {
   }
 
   &__emblem {
-    animation: 0.5s ease-in-out forwards slide-down;
+    animation: 0.65s ease-in-out forwards slide-down;
     background-color: #000;
     border-radius: 50%;
     color: #fff;
@@ -148,7 +148,7 @@ html {
     width: 60px;
 
     @include breakpoint(small) {
-      animation: 0.5s ease-in-out 0.3s forwards fade-in;
+      animation-delay: 1.25s;
       margin-right: 12px;
       opacity: 0;
     }
@@ -176,31 +176,31 @@ html {
     }
 
     p {
-      animation: 0.5s ease-in-out forwards slide-up;
+      animation: 0.65s ease-in-out forwards slide-up;
       margin: 0;
       opacity: 0;
       will-change: transform;
 
-      @include breakpoint(small) {
-        animation: 0.5s ease-in-out forwards fade-in;
-      }
-
       &:nth-child(1) {
         animation-delay: 0.3s;
+
+        @include breakpoint(small) {
+          animation-delay: 1.8s;
+        }
       }
 
       &:nth-child(2) {
         animation-delay: 0.6s;
 
         @include breakpoint(small) {
-          animation-delay: 0.3s;
+          animation-delay: 1.8s;
         }
       }
     }
   }
 
   &__intro {
-    animation: 0.5s ease-in-out 0.8s forwards slide-up;
+    animation: 0.65s ease-in-out 0.8s forwards slide-up;
     color: #fff;
     font-weight: 300;
     font-size: 22px;
@@ -210,7 +210,7 @@ html {
     opacity: 0;
 
     @include breakpoint(small) {
-      animation: 0.5s ease-in-out 0.3s forwards fade-in;
+      animation-delay: 2.1s;
 
       br {
         display: none;
@@ -223,7 +223,7 @@ html {
   }
 
   .personal-info {
-    animation: 0.5s ease-in-out 1.2s forwards fade-in;
+    animation: 0.65s ease-in-out 1.2s forwards fade-in;
     align-items: flex-start;
     color: #fff;
     display: flex;
@@ -297,7 +297,7 @@ html {
     }
 
     &.visible {
-      animation: 0.5s ease-in-out forwards slide-up;
+      animation: 0.65s ease-in-out forwards slide-up;
     }
   }
 

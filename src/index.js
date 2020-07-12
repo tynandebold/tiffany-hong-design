@@ -2,14 +2,15 @@
   init();
 
   function init() {
+    var isHeroInView = isElemInViewport(document.querySelector('.hero'));
+
     handleEvents();
 
-    var isHeroInView = isElemInViewport(document.querySelector('.hero'));
     setTimeout(
       function () {
         initCarousels();
       },
-      isHeroInView ? 1750 : 1000
+      isHeroInView ? 2250 : 1000
     );
   }
 
