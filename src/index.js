@@ -16,8 +16,8 @@
       y: 0,
     });
 
-    initCarousels();
-    handleEvents();
+    // initCarousels();
+    // handleEvents();
   }
 
   function handleEvents() {
