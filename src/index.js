@@ -2,6 +2,20 @@
   init();
 
   function init() {
+    gsap.to('.hero__greeting p:first-child', {
+      delay: 0.35,
+      duration: 0.5,
+      opacity: 1,
+      y: 0,
+    });
+
+    gsap.to('.hero__greeting p:last-child', {
+      delay: 0.7,
+      duration: 0.5,
+      opacity: 1,
+      y: 0,
+    });
+
     initCarousels();
     handleEvents();
   }
