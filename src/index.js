@@ -2,6 +2,7 @@
   init();
 
   function init() {
+    initCarousels();
     handleEvents();
 
     var isHeroInView = isElemInViewport(document.querySelector(".hero"));

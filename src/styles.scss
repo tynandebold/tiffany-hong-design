@@ -126,10 +126,7 @@ html {
   }
 
   &__work-status-wrapper-text {
-    animation-duration: 7s;
-    animation-iteration-count: infinite;
-    animation-name: slide-text;
-    animation-timing-function: linear;
+    animation: 7s linear 1.85s infinite slide-text;
     color: #000;
     font-size: 14px;
     font-weight: 600;
@@ -137,10 +134,6 @@ html {
     top: 0;
     transform: translate(100%, 0);
     width: 100%;
-
-    @include breakpoint(small) {
-      animation-delay: 1.5s;
-    }
 
     &_color {
       color: #000;
@@ -160,7 +153,9 @@ html {
     width: 60px;
 
     @include breakpoint(small) {
+      animation: 0.5s ease-in-out 0.3s forwards fade-in;
       margin-right: 12px;
+      opacity: 0;
     }
 
     &__text {
@@ -191,12 +186,20 @@ html {
       opacity: 0;
       will-change: transform;
 
+      @include breakpoint(small) {
+        animation: 0.5s ease-in-out forwards fade-in;
+      }
+
       &:nth-child(1) {
         animation-delay: 0.3s;
       }
 
       &:nth-child(2) {
         animation-delay: 0.6s;
+
+        @include breakpoint(small) {
+          animation-delay: 0.3s;
+        }
       }
     }
   }
@@ -212,6 +215,8 @@ html {
     opacity: 0;
 
     @include breakpoint(small) {
+      animation: 0.5s ease-in-out 0.3s forwards fade-in;
+
       br {
         display: none;
       }
