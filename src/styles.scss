@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Orelo-SemiWide";
-  src: url("../fonts/Orelo-SemiWide.woff2") format("woff2"), url("../fonts/Orelo-SemiWide.woff") format("woff");
+  src: url("../fonts/Orelo-SemiWide.woff2") format("woff2"),
+    url("../fonts/Orelo-SemiWide.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -17,7 +18,8 @@
 
 @font-face {
   font-family: "proxima-nova";
-  src: url("../fonts/ProximaNova-Light.woff2") format("woff2"), url("../fonts/ProximaNova-Light.woff") format("woff");
+  src: url("../fonts/ProximaNova-Light.woff2") format("woff2"),
+    url("../fonts/ProximaNova-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -141,7 +143,7 @@ html {
     }
 
     &_color {
-      color: #002eff;
+      color: #fff;
       text-decoration: none;
     }
   }
