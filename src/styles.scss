@@ -73,17 +73,24 @@ html {
 }
 
 .hero {
-  background-image: url("./assets/hero.jpg");
-  background-position: center center;
-  background-size: cover;
+  background-image: url("./assets/noise.png");
+  background-repeat: repeat;
   display: flex;
   flex-direction: column;
   height: 100vh;
   max-height: 880px;
+  position: relative;
 
   @include breakpoint(small) {
     height: auto;
     padding: 0 20px;
+  }
+
+  .canvas {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
   }
 
   &__top-row {
@@ -129,7 +136,7 @@ html {
     width: 100%;
 
     &_color {
-      color: #002eff;
+      color: #000;
       text-decoration: none;
     }
   }
