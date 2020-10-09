@@ -98,48 +98,12 @@ html {
   &__top-row {
     align-items: center;
     display: flex;
+    justify-content: center;
     margin: 65px 0 75px;
 
     @include breakpoint(small) {
-      flex-direction: row-reverse;
+      justify-content: flex-start;
       margin: 50px 0 50px;
-    }
-  }
-
-  &__work-status-wrapper {
-    flex: 1;
-
-    @include breakpoint(small) {
-      &:last-of-type {
-        display: none;
-      }
-    }
-  }
-
-  .animation-container {
-    height: 40px;
-    max-width: 200px;
-    overflow: hidden;
-    position: relative;
-
-    @include breakpoint(small) {
-      max-width: 220px;
-    }
-  }
-
-  &__work-status-wrapper-text {
-    animation: 7s linear 1.85s infinite slide-text;
-    color: #000;
-    font-size: 14px;
-    font-weight: 600;
-    position: absolute;
-    top: 0;
-    transform: translate(100%, 0);
-    width: 100%;
-
-    &_color {
-      color: #000;
-      text-decoration: none;
     }
   }
 
