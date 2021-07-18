@@ -47,8 +47,37 @@
         <canvas class="canvas" height="32" width="32"></canvas>
         <div class="standardized-wrapper">
           <div class="hero__top-row">
-            <div class="hero__emblem">
-              <span class="hero__emblem__text">thd</span>
+            <div class="hero__spinner">
+              <div class="hero__circle">
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  width="300px"
+                  height="300px"
+                  viewBox="0 0 300 300"
+                  enable-background="new 0 0 300 300"
+                  xml:space="preserve"
+                >
+                  <defs>
+                    <path
+                      id="circlePath"
+                      d=" M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
+                    />
+                  </defs>
+                  <circle cx="150" cy="100" r="75" fill="none" />
+                  <g>
+                    <use xlink:href="#circlePath" fill="none" />
+                    <text fill="#000">
+                      <textPath xlink:href="#circlePath">
+                        Tiffany Hong Design Tiffany Hong Design
+                      </textPath>
+                    </text>
+                  </g>
+                </svg>
+              </div>
             </div>
           </div>
           <h1 class="hero__greeting">
@@ -67,7 +96,7 @@
           <div class="personal-info">
             <div class="personal-info__wrapper">
               <div class="personal-info__content">
-                <a href="./resume.pdf" rel="noopener" target="_blank"
+                <a href="./resume.pdf" rel="noopener nofollow" target="_blank"
                   >Credentials</a
                 >
               </div>
