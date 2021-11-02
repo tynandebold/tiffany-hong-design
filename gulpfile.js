@@ -8,7 +8,7 @@ var PUBLIC_DIR = "public/";
 var autoprefixer = require("autoprefixer");
 var cssnano = require("cssnano");
 var postcss = require("gulp-postcss");
-var sass = require("gulp-sass");
+var sass = require("gulp-sass")(require("sass"));
 
 // For scripts:
 var minify = require("gulp-minify");
@@ -36,9 +36,9 @@ function minifyJs() {
     .pipe(
       minify({
         ext: {
-          min: ".min.js"
+          min: ".min.js",
         },
-        noSource: true
+        noSource: true,
       })
     )
     .pipe(dest(PUBLIC_DIR));
@@ -48,7 +48,7 @@ function copyFiles() {
   return src(
     ["src/index.html", "src/resume.pdf", "src/fonts/*", "src/assets/*"],
     {
-      base: "src/"
+      base: "src/",
     }
   ).pipe(dest(PUBLIC_DIR));
 }
@@ -62,8 +62,8 @@ function startServer(cb) {
   browserSync.init({
     notify: false,
     server: {
-      baseDir: PUBLIC_DIR
-    }
+      baseDir: PUBLIC_DIR,
+    },
   });
 
   cb();
