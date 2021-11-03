@@ -100,7 +100,7 @@ html {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  max-height: 565px;
+  max-height: 675px;
   position: relative;
 
   @include breakpoint(small) {
@@ -132,12 +132,12 @@ html {
     font-weight: 500;
   }
 
-  &__greeting {
+  &__header {
     font-family: Orelo-SemiWide;
     font-weight: normal;
-    font-size: 60px;
-    line-height: 65px;
-    margin: 0 0 55px;
+    font-size: 70px;
+    line-height: 75px;
+    margin: 0 0 75px;
 
     @include breakpoint(small) {
       font-size: 50px;
@@ -186,7 +186,7 @@ html {
   &__links a {
     color: $black;
     font-family: Orelo-SemiWide;
-    font-size: 60px;
+    font-size: 70px;
     font-weight: normal;
     margin-right: 60px;
     position: relative;
@@ -252,7 +252,7 @@ strong {
 
   .project__title {
     font-family: Orelo-SemiWide;
-    font-size: 50px;
+    font-size: 60px;
     font-weight: normal;
     margin: 0 0 30px;
     opacity: 0;
