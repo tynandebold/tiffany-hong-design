@@ -1,38 +1,47 @@
+// FONTS
+
 @font-face {
-  font-family: 'Orelo-SemiWide';
-  src: url('../fonts/Orelo-SemiWide.woff2') format('woff2'),
-    url('../fonts/Orelo-SemiWide.woff') format('woff');
+  font-family: "Orelo-SemiWide";
+  src: url("../fonts/Orelo-SemiWide.woff2") format("woff2"),
+    url("../fonts/Orelo-SemiWide.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'proxima-nova';
+  font-family: "proxima-nova";
   font-display: swap;
   font-style: normal;
   font-weight: 400;
-  src: local('proxima nova regular'), local('proxima-nova-regular'),
-    url('../fonts/proxima-nova-regular.woff2') format('woff2');
+  src: local("proxima nova regular"), local("proxima-nova-regular"),
+    url("../fonts/proxima-nova-regular.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: 'proxima-nova';
-  src: url('../fonts/ProximaNova-Light.woff2') format('woff2'),
-    url('../fonts/ProximaNova-Light.woff') format('woff');
+  font-family: "proxima-nova";
+  src: url("../fonts/ProximaNova-Light.woff2") format("woff2"),
+    url("../fonts/ProximaNova-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'proxima-nova';
-  src: url('../fonts/ProximaNova-Semibold.woff2') format('woff2'),
-    url('../fonts/ProximaNova-Semibold.woff') format('woff');
+  font-family: "proxima-nova";
+  src: url("../fonts/ProximaNova-Semibold.woff2") format("woff2"),
+    url("../fonts/ProximaNova-Semibold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
+
+// VARIABLES
+
+$black: #112a14;
+$hero-bg: #faf8f6;
+
+// MIXINS
 
 @mixin breakpoint($point) {
   @if $point == large {
@@ -50,8 +59,32 @@
   }
 }
 
+// EXTENDS
+
+%after-image {
+  background-size: 90px 70px;
+  content: " ";
+  height: 70px;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 90px;
+  z-index: -1;
+}
+
+%link-button {
+  background-color: $black;
+  border-radius: 30px;
+  color: $hero-bg;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
 html {
   body {
+    color: $black;
     font-family: proxima-nova, sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -62,23 +95,10 @@ html {
   }
 }
 
-.standardized-wrapper {
-  margin: 0 auto;
-  max-width: 940px;
-  width: 940px;
-
-  @media (max-width: 940px) {
-    width: 100%;
-  }
-}
-
 .hero {
-  background-image: url('./assets/noise.png');
-  background-repeat: repeat;
+  background-color: $hero-bg;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  max-height: 880px;
   position: relative;
 
   @include breakpoint(small) {
@@ -86,66 +106,40 @@ html {
     padding: 0 20px;
   }
 
-  .canvas {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -1;
+  .standardized-wrapper {
+    margin: 0 10%;
+
+    @include breakpoint(small) {
+      margin: 0;
+    }
   }
 
   &__top-row {
+    align-items: baseline;
+    animation: 0.5s ease-in-out forwards slide-down;
+    display: flex;
+    justify-content: space-between;
     height: 50px;
-    margin: 65px 0 75px;
+    margin: 45px 0 55px;
 
     @include breakpoint(small) {
-      justify-content: flex-start;
       margin: 50px 0 50px;
     }
   }
 
-  &__spinner {
-    animation: 0.5s ease-in-out forwards slide-down;
-    margin: 0%;
-  }
-
-  &__circle {
-    overflow: hidden;
-    padding-bottom: 100%;
-    position: relative;
-    width: 100%;
-  }
-
-  &__circle text {
+  &__tagline {
+    color: $black;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 500;
+    margin: 0;
   }
 
-  &__circle svg {
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-    animation-name: rotate;
-    animation-timing-function: linear;
-    height: 150px;
-    left: 0;
-    position: absolute;
-    top: -30px;
-    width: 100%;
-
-    @include breakpoint(small) {
-      left: -40px;
-      width: 150px;
-    }
-  }
-
-  &__greeting {
-    color: #fff;
+  &__header {
     font-family: Orelo-SemiWide;
     font-weight: normal;
-    font-size: 86px;
-    line-height: 76px;
-    margin: 0 0 55px;
+    font-size: 70px;
+    line-height: 75px;
+    margin: 0 0 75px;
 
     @include breakpoint(small) {
       font-size: 50px;
@@ -175,82 +169,81 @@ html {
           animation-delay: 0.3s;
         }
       }
-    }
-  }
 
-  &__intro {
-    animation: 0.5s ease-in-out 0.8s forwards slide-up;
-    color: #fff;
-    font-weight: 300;
-    font-size: 22px;
-    line-height: 28px;
-    margin-bottom: 45px;
-    max-width: 850px;
-    opacity: 0;
+      &:nth-child(3) {
+        animation-delay: 0.9s;
 
-    @include breakpoint(small) {
-      animation: 0.5s ease-in-out 0.3s forwards fade-in;
-
-      br {
-        display: none;
-      }
-    }
-  }
-
-  strong {
-    font-weight: 600;
-  }
-
-  .personal-info {
-    animation: 0.5s ease-in-out 1.2s forwards fade-in;
-    align-items: flex-start;
-    color: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 18px;
-    justify-content: space-between;
-    opacity: 0;
-
-    @include breakpoint(small) {
-      margin-bottom: 40px;
-    }
-  }
-
-  .personal-info__wrapper {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.44;
-
-    @include breakpoint(small) {
-      width: 100%;
-    }
-  }
-
-  .personal-info__content {
-    a {
-      color: #fff;
-      font-weight: 600;
-      position: relative;
-      text-decoration: none;
-
-      &:before {
-        background-color: #fff;
-        bottom: -3px;
-        content: '';
-        height: 3px;
-        opacity: 0;
-        position: absolute;
-        transition: opacity 0.2s ease-in-out;
-        width: 100%;
-      }
-
-      &:hover {
-        &:before {
-          opacity: 1;
+        @include breakpoint(small) {
+          animation-delay: 0.3s;
         }
       }
     }
   }
+
+  &__links {
+    animation: 0.5s ease-in-out 1.1s forwards slide-up;
+    opacity: 0;
+    margin-bottom: 50px;
+
+    @include breakpoint(small) {
+      animation: 0.3s ease-in-out 0.5s forwards slide-up;
+    }
+  }
+
+  &__links a {
+    color: $black;
+    font-family: Orelo-SemiWide;
+    font-size: 70px;
+    font-weight: normal;
+    margin-right: 60px;
+    position: relative;
+    text-decoration: none;
+
+    @include breakpoint(small) {
+      font-size: 35px;
+      text-decoration: underline;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+
+  &__about::after {
+    @extend %after-image;
+
+    background-image: url("./assets/portrait.jpg");
+    right: -26px;
+    top: 45px;
+  }
+
+  &__film::after {
+    @extend %after-image;
+
+    background-image: url("./assets/switzerland.jpg");
+    right: -37px;
+    top: -25px;
+  }
+
+  &__work::after {
+    @extend %after-image;
+
+    background-image: url("./assets/aloft.jpg");
+    right: 128px;
+    top: 40px;
+
+    @include breakpoint(small) {
+      right: 50px;
+    }
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+.link-button {
+  @extend %link-button;
 }
 
 .work {
@@ -261,6 +254,16 @@ html {
 
   @include breakpoint(small) {
     padding: 0 20px 50px;
+  }
+
+  .standardized-wrapper {
+    margin: 0 auto;
+    max-width: 940px;
+    width: 940px;
+
+    @media (max-width: 940px) {
+      width: 100%;
+    }
   }
 
   .project__title {
@@ -414,15 +417,22 @@ html {
   }
 
   button.flickity-button.flickity-prev-next-button.previous {
-    cursor: url('../assets/prev.png') 16 16, w-resize;
+    cursor: url("../assets/prev.png") 16 16, w-resize;
     left: 0;
   }
 
   button.flickity-button.flickity-prev-next-button.next {
-    cursor: url('../assets/next.png') 16 16, e-resize;
+    cursor: url("../assets/next.png") 16 16, e-resize;
     right: 0;
   }
 }
+
+.footer {
+  margin-bottom: 75px;
+  text-align: center;
+}
+
+// KEYFRAMES
 
 @keyframes slide-down {
   from {
