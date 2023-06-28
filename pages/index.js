@@ -16,7 +16,7 @@ import style from "../styles/index.module.scss";
 const flickityOptions = {
   imagesLoaded: true,
   lazyLoad: 2,
-  pageDots: false,
+  pageDots: true,
   setGallerySize: false,
   wrapAround: true,
 };
@@ -127,7 +127,7 @@ export default function Index({
           </div>
         </section>
         <section className={style.work}>
-          {projectData.map((project) => {
+          {projectData.map((project, index) => {
             return (
               <div
                 className={style.work__standardizedWrapper}
@@ -183,9 +183,10 @@ export default function Index({
                         }
                       })}
                     </Flickity>
-                    <p className={style.carouselInfo}>
-                      1 of {project.mediaCollection.items.length}
-                    </p>
+                    {/* <p className={style.carouselInfo}>
+                      {activeCarouselIndex[index].activeIndex} of{" "}
+                      {project.mediaCollection.items.length}
+                    </p> */}
                   </div>
                   <p className={style.work__project__description}>
                     {project.description}
