@@ -4,6 +4,7 @@ import ContentfulImage from "../components/contentful-image";
 import {
   getContactLinkData,
   getHeroData,
+  getMetadata,
   getProjectData,
   getTagLineData,
 } from "../lib/api";
@@ -23,6 +24,7 @@ const flickityOptions = {
 export default function Index({
   contactLinkData,
   heroData,
+  pageMetadata,
   projectData,
   tagLineData,
 }) {
@@ -61,17 +63,26 @@ export default function Index({
   return (
     <>
       <Head>
-        <title>Tiffany Hong Design</title>
+        <title>{pageMetadata.pageTitle || "Tiffany Hong Design"}</title>
         <meta name="author" content="Tiffany Hong" />
         <meta name="creator" content="Tiffany Hong" />
-        <link rel="shortcut icon" href="/assets/favicon-32x32.png" />
+        <link
+          rel="shortcut icon"
+          href={pageMetadata.favicon.url || "/assets/favicon-32x32.png"}
+        />
         <meta
           name="description"
-          content="Experienced digital and graphic designer with a proven history of successful projects of all shapes and sizes. A demonstrated leader, displaying positive, effective, and empathetic direction and management."
+          content={
+            pageMetadata.pageDescription ||
+            "Experienced digital and graphic designer with a proven history of successful projects of all shapes and sizes. A demonstrated leader, displaying positive, effective, and empathetic direction and management."
+          }
         />
         <meta
           name="keywords"
-          content="digital design, graphic design, designer, web design, typography, art direction, identity and branding, ux/ui design, editorial design, product design, adobe creative suite, figma, sketch, invision, keynote"
+          content={
+            pageMetadata.keywords ||
+            "digital design, graphic design, designer, web design, typography, art direction, identity and branding, ux/ui design, editorial design, product design, adobe creative suite, figma, sketch, invision, keynote"
+          }
         />
         <meta name="robots" content="index,follow" />
         <meta name="googlebot" content="index,follow" />
@@ -111,7 +122,7 @@ export default function Index({
           </div>
         </section>
         <section className={style.work}>
-          {projectData.map((project, index) => {
+          {projectData.map((project) => {
             return (
               <div
                 className={style.work__standardizedWrapper}
@@ -196,10 +207,17 @@ export default function Index({
 export async function getStaticProps({ preview = false }) {
   const contactLinkData = (await getContactLinkData(preview)) || [];
   const heroData = (await getHeroData(preview)) || [];
+  const pageMetadata = (await getMetadata(preview)) || [];
   const projectData = (await getProjectData(preview)) || [];
   const tagLineData = (await getTagLineData(preview)) || [];
 
   return {
-    props: { contactLinkData, heroData, projectData, tagLineData },
+    props: {
+      contactLinkData,
+      heroData,
+      pageMetadata,
+      projectData,
+      tagLineData,
+    },
   };
 }
