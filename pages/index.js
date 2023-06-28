@@ -194,10 +194,10 @@ export default function Index({
 }
 
 export async function getStaticProps({ preview = false }) {
-  const contactLinkData = (await getContactLinkData(preview)) ?? [];
-  const heroData = (await getHeroData(preview)) ?? [];
-  const projectData = (await getProjectData(preview)) ?? [];
-  const tagLineData = (await getTagLineData(preview)) ?? [];
+  const contactLinkData = (await getContactLinkData(preview)) || [];
+  const heroData = (await getHeroData(preview)) || [];
+  const projectData = (await getProjectData(preview)) || [];
+  const tagLineData = (await getTagLineData(preview)) || [];
 
   return {
     props: { contactLinkData, heroData, projectData, tagLineData },
