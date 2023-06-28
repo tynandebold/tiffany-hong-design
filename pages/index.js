@@ -94,7 +94,12 @@ export default function Index({
         />
       </Head>
       <main>
-        <section className={style.hero}>
+        <section
+          className={style.hero}
+          style={{
+            backgroundColor: pageMetadata.heroBackgroundColor || "#faf8f6",
+          }}
+        >
           <div className={style.hero__standardizedWrapper}>
             <div className={style.hero__topRow}>
               <h2 className={style.hero__tagline}>{tagLineData.text}</h2>
