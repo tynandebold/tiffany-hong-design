@@ -1,0 +1,146 @@
+@import "variables";
+@import "mixins";
+
+html,
+body {
+  color: $black;
+  font-family: proxima-nova, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0 auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.visible {
+  animation: 0.5s ease-in-out forwards slide-up;
+}
+
+.is-hidden {
+  opacity: 0;
+}
+
+.flickity-enabled {
+  opacity: 1;
+}
+
+.carousel {
+  transition: opacity 0.25s;
+}
+
+.carousel-wrapper {
+  margin-bottom: 58px;
+
+  @include breakpoint(small) {
+    margin-bottom: 30px;
+    width: 100% !important;
+  }
+
+  &_horizontal_large {
+    max-height: 536px;
+    max-width: 860px;
+
+    .carousel {
+      height: 536px;
+
+      @include breakpoint(small) {
+        height: 230px;
+      }
+    }
+  }
+
+  &_horizontal_small {
+    max-height: 507px;
+    max-width: 780px;
+
+    .carousel {
+      height: 507px;
+
+      @include breakpoint(small) {
+        height: 230px;
+      }
+    }
+  }
+
+  &_vertical {
+    max-height: 783px;
+    max-width: 700px;
+
+    .carousel {
+      height: 783px;
+
+      @include breakpoint(small) {
+        height: 400px;
+      }
+    }
+  }
+
+  &_vertical_small {
+    max-height: 711px;
+    max-width: 620px;
+
+    .carousel {
+      height: 711px;
+
+      @include breakpoint(small) {
+        height: 400px;
+      }
+    }
+  }
+}
+
+.flickity-slider img,
+.flickity-slider video {
+  display: block;
+  height: 100%;
+}
+
+.flickity-page-dots .dot {
+  background: #112a14;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 4px;
+}
+
+button.flickity-button.flickity-prev-next-button {
+  -webkit-transform: none;
+  background-color: transparent;
+  border-radius: 0;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  transform: none;
+  width: 50%;
+
+  @include breakpoint(small) {
+    pointer-events: none;
+  }
+}
+
+button.flickity-button.flickity-prev-next-button.previous {
+  cursor: url("/assets/prev.png") 16 16, w-resize;
+  left: 0;
+}
+
+button.flickity-button.flickity-prev-next-button.next {
+  cursor: url("/assets/next.png") 16 16, e-resize;
+  right: 0;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translate(0, 20%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
