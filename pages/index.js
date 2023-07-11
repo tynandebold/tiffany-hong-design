@@ -199,7 +199,7 @@ export default function Index({
         <section className={style.footer}>
           <a
             className={style.linkButton}
-            href="./assets/tiffany-hong-portfolio.pdf"
+            href={heroData.portfolioAsset.url}
             target="_blank"
           >
             {heroData.documentTextTitle}
