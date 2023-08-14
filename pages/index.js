@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
 import Head from "next/head";
-import ContentfulImage from "../components/contentful-image";
 import {
   getContactLinkData,
   getHeroData,
@@ -15,7 +14,7 @@ import style from "../styles/index.module.scss";
 
 const flickityOptions = {
   imagesLoaded: true,
-  lazyLoad: 2,
+  lazyLoad: 1,
   pageDots: true,
   setGallerySize: false,
   wrapAround: true,
@@ -172,21 +171,16 @@ export default function Index({
                           );
                         } else {
                           return (
-                            <ContentfulImage
+                            <img
                               alt={`${project.title} image ${index + 1}`}
-                              fill
                               key={media.url}
-                              sizes="(max-width: 768px) 100vw, 50vw"
-                              src={media.url}
+                              data-flickity-lazyload={media.url}
+                              src="/assets/placeholder.jpg"
                             />
                           );
                         }
                       })}
                     </Flickity>
-                    {/* <p className={style.carouselInfo}>
-                      {activeCarouselIndex[index].activeIndex} of{" "}
-                      {project.mediaCollection.items.length}
-                    </p> */}
                   </div>
                   <p className={style.work__project__description}>
                     {project.description}
